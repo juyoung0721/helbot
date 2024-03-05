@@ -131,7 +131,7 @@ if prompt:
         }
         st.session_state.history.append(assistant_prompt)
     if video_link:
-        st_message(video_embed(video_link),allow_html=True)
+        st_message(video_embed(video_link),allow_html=True,avatar_style='no-avatar')
 
 
 with st.sidebar:
