@@ -65,19 +65,19 @@ with col2.container(border=True,height=120):
 # <iframe width="400" height="215" src="https://movie2.koreahosting.kr/traffic-unlimited-2/player/testdemo/player.php?file=396362105&autoplay=1&loop=0" title="video player" frameborder="0" allow="accelerometer; encrypted-media;"></iframe>
 # '''
 # st_message(video_embed,allow_html=True)
-st_message("무엇이든 물어보세요😊")
+st_message("무엇이든 물어보세요😊",avatar_style='no-avatar')
 for message in st.session_state.history:
     if message["role"] == "user":
-        st_message(message["content"], is_user=True)
+        st_message(message["content"], is_user=True,avatar_style='no-avatar')
     elif message["role"] == "assistant":
-        st_message(message["content"])
+        st_message(message["content"],avatar_style='no-avatar')
     
 
 # st.link_button("video 보러가기",video_url)
 prompt = st.chat_input(placeholder="무엇이든 물어보세요😊")
 
 if prompt:
-    st_message(prompt,is_user=True)
+    st_message(prompt,is_user=True,avatar_style='no-avatar')
     st.session_state.history.append({"role": "user", "content": prompt })
 
     response = client.embeddings.create(input=prompt,model="text-embedding-3-small")
@@ -123,7 +123,7 @@ if prompt:
         ):
             chunk = response.choices[0].delta.content or ""
             result += chunk
-        st_message(result)
+        st_message(result,avatar_style='no-avatar')
     
         assistant_prompt = {
             "role" : "assistant",
