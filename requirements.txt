@@ -1,4 +1,4 @@
 streamlit
 openai
-Pinecone
+langchain
 streamlit_chat
