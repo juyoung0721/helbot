@@ -1,4 +1,4 @@
 streamlit
 openai
-pinecone
+Pinecone
 streamlit_chat
